@@ -37,12 +37,12 @@ jeka intellij: iml
 
 The following commands requires a Docker cli (such as Docker Desktop) on the host.
 
-Create a Docker Image of the Spring-Boot Application
+Create a Docker Image of the Spring-Boot Application.
 ```shell
 jeka docker: build
 ```
 
-Show Details about of the Docker Image
+Show Details about of the Docker Image.
 ```shell
 jeka docker: info
 ```
@@ -56,7 +56,7 @@ Create a Docker Image containing the Native Executable of the Application (small
 jeka docker: buildNative
 ```
 
-Show Details about of the Docker Native Image
+Show Details about of the Docker Native Image.
 ```shell
 jeka docker: infoNative
 ```
