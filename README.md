@@ -56,7 +56,17 @@ Create a Docker Image containing the Native Executable of the Application (small
 jeka docker: buildNative
 ```
 
-Show Details about of the Docker Native Image.
+Create a minimalist native Docker Image:
+```shell
+jeka docker: buildNative nativeBaseImage=gcr.io/distroless/static-debian12:nonroot native: staticLink=MUSL
+```
+
+Execute the Docker Image:
+```shell
+docker run --rm -p 8080:8080 native-demo-springboot-simple:latest
+```
+
+Show Details about of the Docker Native Image:
 ```shell
 jeka docker: infoNative
 ```
