@@ -1,15 +1,44 @@
-# A Bootstrap Project for Jeka Wrapper.
+# Springboot Jeka - Simple Demo
 
-A minimalist Jeka project containing a _Jeka wrapper_ for starting working with Jeka.
+## JeKa commands
 
-Using this template, you can create a Jeka project from scratch without having Jeka installed on your machine.
+Create jar
+```shell
+jeka project: pack
+```
 
-Once the repository cloned, generate a Jeka project skeleton using command line :
-* `jekaw scaffold#run` : Genarate Jeka files and folder for a simple automation project (No standard JVM Project to build).
-* `jekaw scaffold#run project#` : Generate Jeka files and folders for building a Java project.
-* `jekaw scaffold#run springboot# @dev.jeka:springboot-plugin` : Generate Jeka files and folders for building a Springboot project.
+Clean and Create jar
+```shell
+jeka project: pack --clean
+```
 
-To work withe IDE, execute command-line :
-* `jeka intellij#iml` : Genarate _Intellij_ iml file according project settings.
-* `jeka eclipse#files` : Generate _Eclipse .project_ and _.classpath_ files according project settings.
+Create jar skipping tests
+```shell
+jeka project: pack "-Djeka.skip.tests=true"
+```
 
+Run jar
+```shell
+jeka project: runJar run.programArgs="" run.jvmOptions=""
+```
+
+Synchronize IntelliJ
+```shell
+jeka intellij: iml
+```
+
+### Docker
+
+Create image
+```shell
+jeka docker: build
+
+```
+Show info about image
+```shell
+jeka docker: info
+```
+Run image
+```shell
+jeka docker: run
+```

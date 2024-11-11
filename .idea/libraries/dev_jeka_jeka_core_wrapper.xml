@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="dev.jeka.jeka-core-wrapper">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jeka/wrapper/dev.jeka.jeka-core-wrapper.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
