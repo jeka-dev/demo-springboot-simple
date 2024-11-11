@@ -1,20 +1,26 @@
 # Springboot Jeka - Simple Demo
 
-## JeKa commands
+This showcase how to build a Spring-Boot application with JeKa with default options.
+It also outlines how a building docker and native images can be achieved at no additional cost.
+
+We don't need Java code to configure the build : all configuration lies in [dependencies.txt](dependencies.txt) 
+and [jeka.properties](jeka.properties).
+
+## Popular Build Commands
 
 Create jar
 ```shell
 jeka project: pack
 ```
 
-Clean and Create jar
+Clean and Create a bootable jar.
 ```shell
 jeka project: pack --clean
 ```
 
-Create jar skipping tests
+Create bootable jar skipping tests
 ```shell
-jeka project: pack "-Djeka.skip.tests=true"
+jeka project: pack "-Djeka.skip.tests=true" --clean 
 ```
 
 Run jar
@@ -27,18 +33,30 @@ Synchronize IntelliJ
 jeka intellij: iml
 ```
 
-### Docker
+### Docker JVM
 
-Create image
+The following commands requires a Docker cli (such as Docker Desktop) on the host.
+
+Create a Docker Image of the Spring-Boot Application
 ```shell
 jeka docker: build
-
 ```
-Show info about image
+
+Show Details about of the Docker Image
 ```shell
 jeka docker: info
 ```
-Run image
+
+### Docker Native
+
+Native compilation does not have any requisite.
+
+Create a Docker Image containing the Native Executable of the Application (smaller and faster).
 ```shell
-jeka docker: run
+jeka docker: buildNative
+```
+
+Show Details about of the Docker Native Image
+```shell
+jeka docker: infoNative
 ```
