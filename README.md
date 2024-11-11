@@ -3,8 +3,8 @@
 This showcase how to build a Spring-Boot application with JeKa with default options.
 It also outlines how a building docker and native images can be achieved at no additional cost.
 
-We don't need Java code to configure the build : all configuration lies in [dependencies.txt](dependencies.txt) 
-and [jeka.properties](jeka.properties).
+Basic configuration (java+jeka versions) lies in [dependencies.txt](dependencies.txt) while project configuration is 
+specified with [Java code](jeka-src/Build.java).
 
 ## Popular Build Commands
 
