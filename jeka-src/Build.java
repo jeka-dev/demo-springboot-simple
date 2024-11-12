@@ -5,7 +5,7 @@ import dev.jeka.core.tool.builtins.project.ProjectKBean;
 import dev.jeka.plugins.springboot.SpringbootKBean;
 
 @JkInjectClasspath("dev.jeka:springboot-plugin") // import from Maven central
-public class Build extends KBean {
+class Build extends KBean {
 
     @JkInjectRunbase
     ProjectKBean projectKBean;
