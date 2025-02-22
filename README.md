@@ -8,29 +8,29 @@ and [jeka.properties](jeka.properties).
 
 ## Popular Build Commands
 
-Create jar
+Create jar:
 ```shell
-jeka project: pack
+jeka pack
 ```
 
-Clean and Create a bootable jar.
+Clean and Create a bootable jar:
 ```shell
-jeka project: pack --clean
+jeka pack --clean
 ```
 
-Create bootable jar skipping tests
+Create bootable jar skipping tests:
 ```shell
-jeka project: pack "-Djeka.skip.tests=true" --clean 
+jeka pack "-Djeka.skip.tests=true" --clean 
 ```
 
 Run jar
 ```shell
-jeka project: runJar run.programArgs="" run.jvmOptions=""
+jeka runJar run.programArgs="" run.jvmOptions=""
 ```
 
 Synchronize IntelliJ
 ```shell
-jeka intellij: iml
+jeka intellij: sync
 ```
 
 ### Docker JVM
