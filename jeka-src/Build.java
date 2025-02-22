@@ -14,4 +14,7 @@ class Build extends KBean {
                 .add("org.springframework.boot:spring-boot-starter-test");
     }
 
+    @JkPostInit(required = true)
+    private void postInit(SpringbootKBean springbootKBean) {}
+
 }
