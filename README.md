@@ -1,72 +1,83 @@
-# Springboot Jeka - Simple Demo
+# Springboot JeKa - Simple Demo
 
-This showcase how to build a Spring-Boot application with JeKa with default options.
-It also outlines how a building docker and native images can be achieved at no additional cost.
+This shows how to build a Spring Boot application with JeKa, with default options, and how to create Docker
+and native images with no extra configuration.
 
-We don't need Java code to configure the build : all configuration lies in [dependencies.txt](dependencies.txt) 
-and [jeka.properties](jeka.properties).
+The build needs no Java code: the configuration lies in [jeka.project.deps](jeka.project.deps)
+and [jeka.properties](jeka.properties). The [code-config](https://github.com/jeka-dev/demo-springboot-simple/tree/code-config)
+branch shows the same build configured with Java code.
 
-## Popular Build Commands
+## Prerequisites
 
-Create jar:
+- [JeKa installed](https://jeka-dev.github.io/jeka/installation/). JeKa downloads the JDK it needs.
+- Docker, for the Docker images. The native image is compiled inside Docker: you don't need GraalVM.
+
+## Popular build commands
+
+Run the tests and create the bootable jar in `jeka-output/`:
 ```shell
-jeka pack
+jeka test pack
 ```
 
-Clean and Create a bootable jar:
+Create the bootable jar only, after cleaning the output:
 ```shell
 jeka pack --clean
 ```
 
-Create bootable jar skipping tests:
-```shell
-jeka pack "-Djeka.skip.tests=true" --clean 
-```
-
-Run jar
+Run the jar, then open http://localhost:8080 (it answers `Hello World`):
 ```shell
 jeka runJar run.programArgs="" run.jvmOptions=""
 ```
 
-Synchronize IntelliJ
+Synchronize IntelliJ:
 ```shell
 jeka intellij: sync
 ```
 
 ### Docker JVM
 
-The following commands requires a Docker cli (such as Docker Desktop) on the host.
-
-Create a Docker Image of the Spring-Boot Application.
+Create a Docker image of the Spring Boot application:
 ```shell
 jeka docker: build
 ```
 
-Show Details about of the Docker Image.
+Show details about the Docker image:
 ```shell
 jeka docker: info
 ```
 
-### Docker Native
+### Docker native
 
-Native compilation does not have any requisite.
-
-Create a Docker Image containing the Native Executable of the Application (smaller and faster).
+Create a Docker image containing the native executable of the application (smaller and faster):
 ```shell
 jeka docker: buildNative
 ```
 
-Create a minimalist native Docker Image:
+Create a minimalist native Docker image:
 ```shell
 jeka docker: buildNative nativeBaseImage=gcr.io/distroless/static-debian12:nonroot native: staticLink=MUSL
 ```
 
-Execute the Docker Image:
+Run the image, then open http://localhost:8080:
 ```shell
 docker run --rm -p 8080:8080 native-demo-springboot-simple:latest
 ```
 
-Show Details about of the Docker Native Image:
+Show details about the native Docker image:
 ```shell
 jeka docker: infoNative
 ```
+
+## How it works
+
+- [jeka.properties](jeka.properties): JeKa and Java versions, `project` as default KBean (so `jeka pack` means
+  `jeka project: pack`), and the `springboot` plugin, loaded with `jeka.classpath` and activated with `@springboot=`.
+  The plugin creates the bootable jar and configures the Docker and native builds for Spring Boot.
+- [jeka.project.deps](jeka.project.deps): the Spring Boot BOM in `[version]`, so starters need no version.
+
+## Links
+
+- [Build projects](https://jeka-dev.github.io/jeka/tutorials/build-projects/)
+- [Spring Boot plugin](https://github.com/jeka-dev/jeka/tree/master/plugins/plugins.springboot)
+- [docker KBean](https://jeka-dev.github.io/jeka/reference/kbeans-docker/) and
+  [native KBean](https://jeka-dev.github.io/jeka/reference/kbeans-native/)
