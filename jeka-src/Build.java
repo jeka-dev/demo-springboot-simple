@@ -8,10 +8,10 @@ class Build extends KBean {
     @JkPostInit(required = true)
     private void postInit(ProjectKBean projectKBean) {
         projectKBean.project.flatFacade.dependencies.compile
-                .add("org.springframework.boot:spring-boot-dependencies::pom:3.5.16")
-                .add("org.springframework.boot:spring-boot-starter-web");
+                .add("org.springframework.boot:spring-boot-dependencies::pom:4.2.0")
+                .add("org.springframework.boot:spring-boot-starter-webmvc");
         projectKBean.project.flatFacade.dependencies.test
-                .add("org.springframework.boot:spring-boot-starter-test");
+                .add("org.springframework.boot:spring-boot-starter-webmvc-test");
     }
 
     @JkPostInit(required = true)
