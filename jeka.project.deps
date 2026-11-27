@@ -1,0 +1,8 @@
+[version]
+org.springframework.boot:spring-boot-dependencies:3.3.5@pom
+
+[compile]
+org.springframework.boot:spring-boot-starter-web
+
+[test]
+org.springframework.boot:spring-boot-starter-test
