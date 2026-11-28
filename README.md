@@ -55,7 +55,7 @@ jeka docker: buildNative
 
 Create a minimalist native Docker image:
 ```shell
-jeka docker: buildNative nativeBaseImage=gcr.io/distroless/static-debian12:nonroot native: staticLink=MUSL
+jeka docker: buildNative nativeBaseImage=gcr.io/distroless/static-debian13:nonroot native: staticLink=MUSL
 ```
 
 Run the image, then open http://localhost:8080:
